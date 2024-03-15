@@ -2,7 +2,16 @@
 // Created by cory on 3/7/24.
 //
 
+#include <iostream>
 #include "stringutil.hpp"
+
+void StringUtil::lower( std::string &s )
+{
+    for ( char &c : s )
+    {
+        c = tolower( c );
+    }
+}
 
 std::vector<std::string> StringUtil::split( char ch, const std::string &in )
 {
@@ -21,7 +30,7 @@ std::vector<std::string> StringUtil::split( char ch, const std::string &in )
         }
     }
     // account for last iteration
-    ret.push_back(curr);
+    ret.push_back( curr );
 
     return ret;
 }
@@ -47,7 +56,14 @@ bool StringUtil::equalsIgnoreCase( const std::string &s0, const std::string &s1 
     return true;
 }
 
-bool StringUtil::continues( const std::string &in )
+void StringUtil::printVec( const std::vector<std::string> &vec )
 {
-    return !equalsIgnoreCase( in, "exit" );
+    std::cout << '[';
+    // avoid repeat calculation
+    std::size_t len = vec.size() - 1;
+    for ( std::size_t i = 0; i < len; i++ )
+    {
+        std::cout << vec[ i ] << ", ";
+    }
+    std::cout << vec[ len ] << ']' << std::endl;
 }

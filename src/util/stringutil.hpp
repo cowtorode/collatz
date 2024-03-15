@@ -11,11 +11,13 @@
 class StringUtil
 {
 public:
+    static void lower( std::string &s );
+
     static std::vector<std::string> split( char ch, const std::string &in );
 
     static bool equalsIgnoreCase( const std::string &s0, const std::string &s1 );
 
-    static bool continues( const std::string &in );
+    static void printVec(const std::vector<std::string> &vec);
 };
 
 
